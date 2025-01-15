@@ -11,7 +11,7 @@ export default {
         courier: ['Courier New', 'monospace'],
         quicksand: ['Quicksand Variable', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
-        montserrat: ['Montserrat Variable', 'sans-serif'], // Ensure this line exists
+        montserrat: ['Montserrat', 'sans-serif'], // Ensure this line exists
       },
     },
   },

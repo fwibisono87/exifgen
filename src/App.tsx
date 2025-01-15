@@ -8,7 +8,7 @@ const App: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [bgColor, setBgColor] = useState<'white' | 'black'>('white');
   const [fontColor, setFontColor] = useState<'black' | 'white'>('black');
-  const [selectedFont, setSelectedFont] = useState<'Arial' | 'Courier' | 'Quicksand' | 'Poppins' | 'Montserrat'>('Poppins');
+  const [selectedFont, setSelectedFont] = useState<'Arial' | 'Courier' | 'Quicksand' | 'Poppins' | 'Montserrat'>('Montserrat');
   const [useInstagramSafeGutters, setUseInstagramSafeGutters] = useState(false);
 
   const [exifFormData, setExifFormData] = useState<ExifFormData>({
@@ -158,7 +158,7 @@ const App: React.FC = () => {
         <select
           id="fontSelect"
           value={selectedFont}
-          onChange={(e) => setSelectedFont(e.target.value as 'Arial' | 'Courier' | 'Quicksand' | 'Poppins')}
+          onChange={(e) => setSelectedFont(e.target.value as 'Arial' | 'Courier' | 'Quicksand' | 'Poppins' | 'Montserrat')}
           className="block w-full p-2 border border-gray-300 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           <option value="Arial">Arial</option>
