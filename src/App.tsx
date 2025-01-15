@@ -115,10 +115,10 @@ const App: React.FC = () => {
   return (
     <div className="flex flex-col py-16 w-screen min-h-screen w-full">
       <div className="flex flex-col items-center justify-center min-h-screen gap-6">
-        <h1 className="text-4xl font-bold mb-6 text-center text-gray-800 dark:text-white">
+        <h1 className="text-4xl font-bold text-center text-gray-800 dark:text-white">
           Polaroid EXIF React App
         </h1>
-        <span className="text-md text-gray-600 dark:text-gray-400">
+        <span className="text-md text-gray-600 dark:text-gray-400 -mt-4">
           By <a href="https://github.com/fwibisono87">@fwibisono87</a>
           </span>
 
