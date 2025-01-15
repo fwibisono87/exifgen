@@ -22,6 +22,10 @@ const App: React.FC = () => {
     iso: '',
     latitude: '',
     longitude: '',
+    subjectModel: '',
+    locationName: '',
+    character: '',
+    dateTimeTaken: '',
   });
 
   const [exifDisplay, setExifDisplay] = useState<{ [K in keyof ExifFormData]: boolean }>({
@@ -35,6 +39,10 @@ const App: React.FC = () => {
     iso: true,
     latitude: true,
     longitude: true,
+    subjectModel: true,
+    locationName: true,
+    character: true,
+    dateTimeTaken: true,
   });
 
   // Add the helper function to format shutter speed
@@ -61,7 +69,8 @@ const App: React.FC = () => {
       const data = await exifr.parse(file);
       console.log('[INFO] EXIF data successfully parsed:', data);
 
-      setExifFormData({
+      setExifFormData((prev) => ({
+        ...prev,
         photographer: data?.Artist || '',
         make: data?.Make || '',
         model: data?.Model || '',
@@ -72,7 +81,10 @@ const App: React.FC = () => {
         iso: data?.ISO ? `ISO ${data.ISO}` : '',
         latitude: data?.latitude ? data.latitude.toFixed(6) : '',
         longitude: data?.longitude ? data.longitude.toFixed(6) : '',
-      });
+        dateTimeTaken: data?.dateTimeOriginal
+          ? 'ada anjir'
+          : '',
+      }));
     } catch (error) {
       console.error('[ERROR] Failed to read EXIF data:', error);
     }
@@ -128,7 +140,7 @@ const App: React.FC = () => {
             onChange={(e) => setUseInstagramSafeGutters(e.target.checked)}
             className="h-5 w-5 text-blue-600"
           />
-          <span className="text-gray-700 dark:text-gray-300">Use Instagram Stories Safe Gutters?</span>
+          <span className="text-gray-700 dark:text-gray-300">Use Instagram Stories Safe Gutters? (forces 9:16)</span>
         </label>
       </div>
       <div className="mb-6">
@@ -162,13 +174,8 @@ const App: React.FC = () => {
         exifDisplay={exifDisplay}
         onToggleDisplay={handleToggleDisplay}
       />
-      {JSON.stringify(exifDisplay)}
-      {JSON.stringify(exifFormData)}
       <div
-        style={{ }}
-      
       >
-
       <CanvasPreview
         selectedFile={selectedFile}
         bgColor={bgColor}

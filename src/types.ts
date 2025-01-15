@@ -1,4 +1,3 @@
-
 export interface ExifFormData {
   photographer: string;
   make: string;
@@ -7,7 +6,11 @@ export interface ExifFormData {
   focalLength: string;
   aperture: string;
   shutter: string;
+  subjectModel:string;
+  locationName: string;
   iso: string;
   latitude: string;
   longitude: string;
+  character: string;
+  dateTimeTaken: string;
 }

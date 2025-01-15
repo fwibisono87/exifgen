@@ -1,14 +1,40 @@
-import React from 'react';
+import React, { FC } from "react";
+import { ExifFormData } from "../types";
+import ExifItem from "./ExifItem";
 
-const SettingsLine = ({ exifFormData, exifDisplay }) => {
+type ExifDisplay = { [K in keyof ExifFormData]: boolean };
+interface SettingsLineProps {
+  exifFormData: ExifFormData;
+  exifDisplay: ExifDisplay;
+}
+
+const SettingsLine: FC<SettingsLineProps> = ({ exifFormData, exifDisplay }) => {
   const exifItems = [
-    { label: 'Shutter', value: exifFormData.shutter, show: exifDisplay.shutter },
-    { label: 'Aperture', value: exifFormData.aperture, show: exifDisplay.aperture },
-    { label: 'Focal Length', value: `${exifFormData.focalLength}mm`, show: exifDisplay.focalLength },
-    { label: 'ISO', value: exifFormData.iso, show: exifDisplay.iso },
+    {
+      label: "Shutter",
+      value: <ExifItem icon="carbon:timer" value={exifFormData.shutter} />,
+      show: exifDisplay.shutter,
+    },
+    {
+      label: "Aperture",
+      value: <ExifItem icon="carbon:aperture" value={exifFormData.aperture} />,
+      show: exifDisplay.aperture,
+    },
+    {
+      label: "Focal Length",
+      value: (
+        <ExifItem icon="carbon:ruler" value={`${exifFormData.focalLength}mm`} />
+      ),
+      show: exifDisplay.focalLength,
+    },
+    {
+      label: "ISO",
+      value: <ExifItem icon="carbon:iso" value={exifFormData.iso} />,
+      show: exifDisplay.iso,
+    },
   ];
 
-  const visibleExifItems = exifItems.filter(item => item.show && item.value);
+  const visibleExifItems = exifItems.filter((item) => item.show && item.value);
 
   return (
     <div className="flex flex-row gap-2 text-2xl mx-auto">
