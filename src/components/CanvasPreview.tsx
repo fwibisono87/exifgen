@@ -2,8 +2,6 @@ import React, { FC, useState, useRef, useEffect } from "react";
 import domToImage from "dom-to-image";
 import { ExifFormData } from "../types";
 import SettingsLine from "./SettingsLine";
-import { Icon, InlineIcon } from "@iconify/react/dist/iconify.js";
-import ExifItem from "./ExifItem";
 import PeopleLine from "./PeopleLine";
 import ShootLine from "./ShootLine";
 
@@ -13,7 +11,7 @@ interface Props {
   fontColor: "black" | "white";
   exifFormData: ExifFormData;
   exifDisplay: { [K in keyof ExifFormData]: boolean };
-  selectedFont: "Arial" | "Courier" | "Quicksand" | "Poppins";
+  selectedFont: "Arial" | "Courier" | "Quicksand" | "Poppins" | "Montserrat";
   useInstagramSafeGutters: boolean;
 }
 

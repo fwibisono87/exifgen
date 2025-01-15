@@ -9,9 +9,9 @@ export default {
       fontFamily: {
         arial: ['Arial', 'sans-serif'],
         courier: ['Courier New', 'monospace'],
-        quicksand: ['Quicksand', 'sans-serif'],
+        quicksand: ['Quicksand Variable', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
-        montserrat: ['Montserrat', 'sans-serif'], // Ensure this line exists
+        montserrat: ['Montserrat Variable', 'sans-serif'], // Ensure this line exists
       },
     },
   },
