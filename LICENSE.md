@@ -1,5 +1,7 @@
 CBKADAL LICENSE
 
+Copyright of the files in this repository remains with the respective authors or / and producers. We are NOT responsible for the ACCURACY or LOSSES that may occur as a result of using this site. PLEASE ASSUME ALL RISKS! You are free to share, copy and redistribute the material of this site in any medium or format for any purpose, even commercially. Please give appropriate credit and acknowledgments, provide a link to the page, and indicate if changes were made. You may do so in any reasonable manner. You should not apply legal terms or technological measures, that legally restrict others from doing anything that is permitted here.
+
 Kami TIDAK bertanggung-jawab atas KEAKURATAN mau pun KERUGIAN yang mungkin terjadi akibat memanfaatkan situs ini. HARAP MENANGGUNG SENDIRI SEGALA RISIKO! Jangan lupa mengungkapkan/ menuliskan penghargaan (acknowledgement) jika anda menggunakan bahan karya dari pihak lain. Situs ini berbasis “Google Sana, Google Sini, Coba Itu, Coba Ini, Lalu Tanya-tanyi” (GSGSCICILTT). Entah ini PLAGIAT, entah ini RISET, yang jelas tidak pernah ada klaim bahwa ini merupakan karya asli, serta belum tentu pula merupakan solusi terbaik, serta bukan untuk konsumsi Scopus :). Mohon kiranya memberikan tanggapan, terutama jika memiliki solusi alternatif. Semoga catatan ini akan bermanfaat di masa mendatang, saat sudah lupa cara menyelesaikan masalah trivia ini.
 
 o7 rms46
