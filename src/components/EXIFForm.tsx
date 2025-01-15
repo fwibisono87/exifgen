@@ -17,7 +17,7 @@ const EXIFForm: React.FC<Props> = ({
   console.log('[INFO] EXIFForm rendered', { exifFormData, exifDisplay });
   return (
     <div className="p-4 bg-gray-100 rounded-lg shadow-md w-full max-w-md">
-      <p className="mb-4 text-lg font-medium text-gray-700">Edit EXIF Fields</p>
+      <p className="mb-4 text-lg font-medium text-gray-700">EXIF Fields</p>
       {Object.keys(exifFormData).map((field) => (
         <div key={field} className="flex items-center mb-3">
           <input
