@@ -4,6 +4,7 @@ import EXIFForm from "./components/EXIFForm";
 import CanvasPreview from "./components/CanvasPreview";
 import { ExifFormData } from "./types";
 import OptionsForm from "./components/OptionsForm";
+import {Icon} from "@iconify/react"
 
 const App: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -120,6 +121,9 @@ const App: React.FC = () => {
         </h1>
         <span className="text-md text-gray-600 dark:text-gray-400 -mt-4">
           By <a href="https://github.com/fwibisono87">@fwibisono87</a>
+          </span>
+          <span className="text-md text-gray-600 dark:text-gray-400 -mt-4">
+          <a href="https://github.com/fwibisono87/exifgen"><Icon icon="carbon:logo-github" className="w-8 h-8"></Icon></a>
           </span>
 
         <div className="mb-6">
