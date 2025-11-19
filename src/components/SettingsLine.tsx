@@ -9,27 +9,34 @@ interface SettingsLineProps {
 }
 
 const SettingsLine: FC<SettingsLineProps> = ({ exifFormData, exifDisplay }) => {
+  // Helper to format focal length - only add "mm" if not already present
+  const formatFocalLength = (focalLength: string): string => {
+    if (!focalLength) return "";
+    if (focalLength.toLowerCase().includes("mm")) return focalLength;
+    return `${focalLength}mm`;
+  };
+
   const exifItems = [
     {
       label: "Shutter",
-      value: <ExifItem icon="carbon:timer" value={exifFormData.shutter} />,
+      value: exifFormData.shutter ? <ExifItem icon="carbon:timer" value={exifFormData.shutter} /> : null,
       show: exifDisplay.shutter,
     },
     {
       label: "Aperture",
-      value: <ExifItem icon="carbon:aperture" value={exifFormData.aperture} />,
+      value: exifFormData.aperture ? <ExifItem icon="carbon:aperture" value={exifFormData.aperture} /> : null,
       show: exifDisplay.aperture,
     },
     {
       label: "Focal Length",
-      value: (
-        <ExifItem icon="carbon:ruler" value={`${exifFormData.focalLength}mm`} />
-      ),
+      value: exifFormData.focalLength ? (
+        <ExifItem icon="carbon:ruler" value={formatFocalLength(exifFormData.focalLength)} />
+      ) : null,
       show: exifDisplay.focalLength,
     },
     {
       label: "ISO",
-      value: <ExifItem icon="carbon:iso" value={exifFormData.iso} />,
+      value: exifFormData.iso ? <ExifItem icon="carbon:iso" value={exifFormData.iso} /> : null,
       show: exifDisplay.iso,
     },
   ];
