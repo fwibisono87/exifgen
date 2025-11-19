@@ -14,6 +14,7 @@ const App: React.FC = () => {
     "Arial" | "Courier" | "Quicksand" | "Poppins" | "Montserrat"
   >("Montserrat");
   const [useInstagramSafeGutters, setUseInstagramSafeGutters] = useState(false);
+  const [imageOrientation, setImageOrientation] = useState<number>(1);
 
   const [exifFormData, setExifFormData] = useState<ExifFormData>({
     photographer: "",
@@ -61,6 +62,28 @@ const App: React.FC = () => {
     }
   };
 
+  // Helper function to format date from EXIF
+  const formatExifDate = (date: Date | string | undefined): string => {
+    if (!date) return "";
+
+    try {
+      const dateObj = date instanceof Date ? date : new Date(date);
+
+      // Check if date is valid
+      if (isNaN(dateObj.getTime())) return "";
+
+      // Format as: "Jan 15, 2024" or customize as needed
+      return dateObj.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      });
+    } catch (error) {
+      console.error("[ERROR] Failed to format date:", error);
+      return "";
+    }
+  };
+
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log("[INFO] handleFileChange called");
     const file = e.target.files?.[0];
@@ -75,13 +98,16 @@ const App: React.FC = () => {
       const data = await exifr.parse(file);
       console.log("[INFO] EXIF data successfully parsed:", data);
 
+      // Extract orientation for proper image rotation
+      setImageOrientation(data?.Orientation || 1);
+
       setExifFormData((prev) => ({
         ...prev,
         photographer: data?.Artist || "",
         make: data?.Make || "",
         model: data?.Model || "",
         lens: data?.LensModel || "",
-        focalLength: data?.FocalLength ? `${data.FocalLength}` : "",
+        focalLength: data?.FocalLength ? `${Math.round(data.FocalLength)}` : "",
         aperture: data?.FNumber ? `ƒ/${data.FNumber}` : "",
         shutter: data?.ExposureTime
           ? formatShutterSpeed(data.ExposureTime)
@@ -89,7 +115,7 @@ const App: React.FC = () => {
         iso: data?.ISO ? `ISO ${data.ISO}` : "",
         latitude: data?.latitude ? data.latitude.toFixed(6) : "",
         longitude: data?.longitude ? data.longitude.toFixed(6) : "",
-        dateTimeTaken: data?.dateTimeOriginal ? "ada anjir" : "",
+        dateTimeTaken: formatExifDate(data?.DateTimeOriginal || data?.CreateDate || data?.ModifyDate),
       }));
     } catch (error) {
       console.error("[ERROR] Failed to read EXIF data:", error);
@@ -160,6 +186,7 @@ const App: React.FC = () => {
             exifDisplay={exifDisplay}
             selectedFont={selectedFont}
             useInstagramSafeGutters={useInstagramSafeGutters}
+            imageOrientation={imageOrientation}
           />
         </div>
       </div>
