@@ -169,13 +169,13 @@ const CanvasPreview: FC<Props> = ({
         color: fontColor,
         fontFamily: selectedFont,
       }}
-      className={`flex flex-col w-[1080px] h-[1920px] ${
-        useInstagramSafeGutters ? "py-[250px] justify-center" : "py-16"
+      className={`flex flex-col w-[1080px] h-[1920px] justify-center ${
+        useInstagramSafeGutters ? "py-[250px]" : "py-16"
       }`}
     >
       <div
         id="componentContainer"
-        className="flex flex-col items-center h-full"
+        className="flex flex-col items-center"
       >
         <div className="flex items-center justify-center mx-auto flex-shrink-0" style={{
           maxWidth: "1000px",
